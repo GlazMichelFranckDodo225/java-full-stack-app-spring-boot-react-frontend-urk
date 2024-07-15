@@ -3,6 +3,7 @@ import { FifthComponent } from './FirstComponent';
 import SecondComponent from './SecondComponent';
 import ThirdComponent from './ThirdComponent';
 import FourthComponent from './FourthComponent';
+import ExploringJavaScriptFurther from './ExploringJavaScriptFurther';
 
 export default function StarterComponent() {
     return (
@@ -12,6 +13,7 @@ export default function StarterComponent() {
         <ThirdComponent />
         <FourthComponent />
         <FifthComponent />
+        <ExploringJavaScriptFurther />
       </div>
     );
   }
