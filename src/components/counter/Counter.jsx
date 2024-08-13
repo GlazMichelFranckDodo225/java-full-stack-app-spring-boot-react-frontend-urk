@@ -1,6 +1,10 @@
+import { useState } from "react";
 import "./Counter.css";
 
 export default function Counter() {
+    // const state = useState(0);
+    const [count, setCount] = useState(0); // Destructuring
+
     /* const buttonStyle = {
         fontSize: "30px",
         backgroundColor: "#00a5ab",
@@ -12,11 +16,21 @@ export default function Counter() {
     } */
 
     function incrementCounterFunction() {
+        /* console.log(state);
+        console.log(state[0]);
+        console.log(state[1]);
+        
+        state[1](state[0] + 1); */
+
+        console.log(count);
+        setCount(count + 1);
+        
         console.log("Increment Button Clicked !");
     }
+
     return (
         <div className="counter">
-            <span className="count">0</span>
+            <span className="count">{count}</span>
             <div>
                 <button 
                     className="counterButton" 
