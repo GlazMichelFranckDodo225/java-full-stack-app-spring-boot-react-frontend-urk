@@ -22,10 +22,23 @@ export default function Counter() {
         
         state[1](state[0] + 1); */
 
-        console.log(count);
         setCount(count + 1);
+        console.log(count);
         
         console.log("Increment Button Clicked !");
+    }
+    
+    function deCrementCounterFunction() {
+        /* console.log(state);
+        console.log(state[0]);
+        console.log(state[1]);
+        
+        state[1](state[0] + 1); */
+
+        setCount(count - 1);
+        console.log(count);
+        
+        console.log("Decrement Button Clicked !");
     }
 
     return (
@@ -38,6 +51,13 @@ export default function Counter() {
                     /* style={{fontSize:"30px"}} */
                     /* style={buttonStyle} */
                 >+</button>
+                
+                <button 
+                    className="counterButton" 
+                    onClick={deCrementCounterFunction}
+                    /* style={{fontSize:"30px"}} */
+                    /* style={buttonStyle} */
+                >-</button>
             </div>
         </div>
     )
