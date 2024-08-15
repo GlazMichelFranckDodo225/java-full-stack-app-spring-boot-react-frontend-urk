@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./Counter.css";
 
-export default function Counter() {
+export default function Counter({by}) {
     // const state = useState(0);
     const [count, setCount] = useState(0); // Destructuring
+    // console.log(by);
+    
 
     /* const buttonStyle = {
         fontSize: "30px",
@@ -22,7 +24,8 @@ export default function Counter() {
         
         state[1](state[0] + 1); */
 
-        setCount(count + 1);
+        // setCount(count + 1);
+        setCount(count + by);
         console.log(count);
         
         console.log("Increment Button Clicked !");
@@ -35,7 +38,8 @@ export default function Counter() {
         
         state[1](state[0] + 1); */
 
-        setCount(count - 1);
+        // setCount(count - 1);
+        setCount(count - by);
         console.log(count);
         
         console.log("Decrement Button Clicked !");
@@ -50,14 +54,14 @@ export default function Counter() {
                     onClick={incrementCounterFunction}
                     /* style={{fontSize:"30px"}} */
                     /* style={buttonStyle} */
-                >+</button>
+                >+ {by}</button>
                 
                 <button 
                     className="counterButton" 
                     onClick={deCrementCounterFunction}
                     /* style={{fontSize:"30px"}} */
                     /* style={buttonStyle} */
-                >-</button>
+                >- {by}</button>
             </div>
         </div>
     )
