@@ -5,9 +5,7 @@ import Counter from './components/counter/Counter';
 function App() {
   return (
     <div className="App">
-      <Counter by={1}/>
-      <Counter by={2}/>
-      <Counter by={3}/>
+      <Counter />
     </div>
   );
 }
@@ -17,7 +15,7 @@ function App() {
 //   console.log(properties);
 //   console.log(properties.property1);
 //   console.log(properties.property2);
-  
+
 //   return (
 //     <div>Props</div>
 //   )
@@ -27,7 +25,7 @@ function App() {
 // function PlayingWithProps({property1, property2}) { // Destruturing
 //   console.log(property1);
 //   console.log(property2);
-  
+
 //   return (
 //     <div>Props</div>
 //   )

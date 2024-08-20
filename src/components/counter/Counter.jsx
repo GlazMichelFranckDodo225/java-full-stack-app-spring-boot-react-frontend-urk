@@ -1,67 +1,55 @@
 import { useState } from "react";
-import {PropTypes} from 'prop-types'
+import { PropTypes } from 'prop-types'
 import "./Counter.css";
 
-export default function Counter({by}) {
+export default function Counter() {
+    const [count, setCount] = useState(0); // Destructuring
+
+    function incrementCounterParentFunction(by) {
+        setCount(count + by);
+    }
+
+    return (
+        <>
+            <span className="totalCount">{count}</span>
+            <CounterButton by={1} />
+            <CounterButton by={2} />
+            <CounterButton by={3} />
+        </>
+    );
+}
+
+function CounterButton({ by }) {
     // const state = useState(0);
     const [count, setCount] = useState(0); // Destructuring
     // console.log(by);
     
-
-    /* const buttonStyle = {
-        fontSize: "30px",
-        backgroundColor: "#00a5ab",
-        width: "100px",
-        margin: "10px",
-        color: "white",
-        padding: "15px",
-        borderRadius: "30px"
-    } */
-
     function incrementCounterFunction() {
-        /* console.log(state);
-        console.log(state[0]);
-        console.log(state[1]);
-        
-        state[1](state[0] + 1); */
-
-        // setCount(count + 1);
         setCount(count + by);
         console.log(count);
-        
+
         console.log("Increment Button Clicked !");
     }
-    
-    function deCrementCounterFunction() {
-        /* console.log(state);
-        console.log(state[0]);
-        console.log(state[1]);
-        
-        state[1](state[0] + 1); */
 
-        // setCount(count - 1);
+    function deCrementCounterFunction() {
         setCount(count - by);
         console.log(count);
-        
+
         console.log("Decrement Button Clicked !");
     }
 
     return (
         <div className="counter">
-            <span className="count">{count}</span>
+            
             <div>
-                <button 
-                    className="counterButton" 
+                <button
+                    className="counterButton"
                     onClick={incrementCounterFunction}
-                    /* style={{fontSize:"30px"}} */
-                    /* style={buttonStyle} */
                 >+ {by}</button>
-                
-                <button 
-                    className="counterButton" 
+
+                <button
+                    className="counterButton"
                     onClick={deCrementCounterFunction}
-                    /* style={{fontSize:"30px"}} */
-                    /* style={buttonStyle} */
                 >- {by}</button>
             </div>
         </div>
@@ -69,11 +57,11 @@ export default function Counter({by}) {
 }
 
 // To Type the "by" Property of the Counter Component
-Counter.propTypes = {
+CounterButton.propTypes = {
     by: PropTypes.number
 }
 
 // To Set Default Value to the "by" Property of the Counter Component
-Counter.defaultProps = {
+CounterButton.defaultProps = {
     by: 1
 }
