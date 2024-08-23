@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PropTypes } from 'prop-types';
+import './Counter.css';
 
 export default function CounterButton({ by, incrementMethod, deCrementMethod }) {
     // const state = useState(0);
