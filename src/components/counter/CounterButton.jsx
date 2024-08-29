@@ -1,19 +1,11 @@
-import { useState } from "react";
 import { PropTypes } from 'prop-types';
-import './Counter.css';
 
 export default function CounterButton({ by, incrementMethod, deCrementMethod }) {
-    // const state = useState(0);
-    const [count, setCount] = useState(0); // Destructuring
-    // console.log(by);
-
     function incrementCounterFunction() {
-        setCount(count + by);
         incrementMethod(by);
     }
 
     function deCrementCounterFunction() {
-        setCount(count - by);
         deCrementMethod(by);
     }
 
