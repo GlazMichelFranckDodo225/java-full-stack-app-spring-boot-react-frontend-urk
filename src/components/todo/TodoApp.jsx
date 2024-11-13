@@ -14,21 +14,55 @@ export default function TodoApp() {
 function LoginComponent() {
     const [username, setUsername] = useState("johndoe");
     const [password, setPassword] = useState("");
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
 
     function handleUsernameChange(event) {
         // console.log(event);
-        // console.log(event.target.value);
+        // console.log(event.target.value); 
         setUsername(event.target.value);
     }
     
     function handlePasswordChange(event) {
-        console.log(event);
-        console.log(event.target.value);
+        // console.log(event);
+        // console.log(event.target.value);
         setPassword(event.target.value);
+    }
+
+    function handleSubmit() {
+        // console.log(username);
+        // console.log(password);
+        if (username === 'johndoe' && password === 'dummy') {
+            console.log("Succes"); 
+            setShowSuccessMessage(true);
+            setShowErrorMessage(false);         
+        } else {
+            console.log("Failed"); 
+            setShowSuccessMessage(false);
+            setShowErrorMessage(true);             
+        }
+    }
+
+    function SuccessMessageComponent() {
+        if (showSuccessMessage) {
+            return <div className='successMessage'>Authenticated Successfully.</div>
+        }
+    
+        return null;
+    }
+    
+    function ErrorMessageComponent() {
+        if (showErrorMessage) {
+            return <div className='errorMessage'>Authentication Failed. Please, Check your Credentials.</div>
+        }
+    
+        return null;
     }
 
     return (
         <div className="login">
+            <SuccessMessageComponent />
+            <ErrorMessageComponent />
             <div className="loginForm">
                 <div>
                     <label>User Name</label>
@@ -39,7 +73,7 @@ function LoginComponent() {
                     <input type="password" name="password" value={password}onChange={handlePasswordChange} />
                 </div>
                 <div>
-                    <button type="button" name="login">Login</button>
+                    <button type="button" name="login" onClick={handleSubmit}>Login</button>
                 </div>
             </div>
         </div>
