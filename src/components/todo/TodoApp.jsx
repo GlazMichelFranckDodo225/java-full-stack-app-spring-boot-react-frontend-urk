@@ -43,26 +43,10 @@ function LoginComponent() {
         }
     }
 
-    function SuccessMessageComponent() {
-        if (showSuccessMessage) {
-            return <div className='successMessage'>Authenticated Successfully.</div>
-        }
-    
-        return null;
-    }
-    
-    function ErrorMessageComponent() {
-        if (showErrorMessage) {
-            return <div className='errorMessage'>Authentication Failed. Please, Check your Credentials.</div>
-        }
-    
-        return null;
-    }
-
     return (
         <div className="login">
-            <SuccessMessageComponent />
-            <ErrorMessageComponent />
+            {showSuccessMessage && <div className='successMessage'>Authenticated Successfully.</div>}
+            {showErrorMessage && <div className='errorMessage'>Authentication Failed. Please, Check your Credentials.</div>}
             <div className="loginForm">
                 <div>
                     <label>User Name</label>
