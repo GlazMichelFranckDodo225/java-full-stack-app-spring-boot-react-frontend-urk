@@ -5,9 +5,8 @@ import './TodoApp.css';
 export default function TodoApp() {
     return (
         <div className="todoApp">
-            <HeaderComponent />
-
             <BrowserRouter>
+                <HeaderComponent />
                 <Routes>
                     <Route path='/' element={<LoginComponent />} />
                     <Route path='/login' element={<LoginComponent />} />
@@ -16,9 +15,8 @@ export default function TodoApp() {
                     <Route path='/logout' element={<LogoutComponent />} />
                     <Route path='*' element={<ErrorComponent />} />
                 </Routes>
+                <FooterComponent />
             </BrowserRouter>
-
-            <FooterComponent />
         </div>
     )
 }
@@ -147,19 +145,35 @@ function ListTodosComponent() {
 
 function HeaderComponent() {
     return (
-        <div className="header">
-            Header 
-            <hr />
-        </div>
+        <header className="border-bottom border-light border-5 mb-5 p-2">
+            <div className="container">
+                <div className="row">
+                    <nav className="navbar navbar-expand-lg">
+                        <a className="navbar-brand ms-2 fs-2 fw-bold text-black" href="#">Todo App</a>
+                        <div className="collapse navbar-collapse">
+                            <ul className="navbar-nav">
+                                <li className="nav-item fs-5"><Link className="nav-link" to="/welcome/johndoe">Home</Link></li>
+                                <li className="nav-item fs-5"><Link className="nav-link" to="/todos">Todos</Link></li>
+                            </ul>
+                        </div>
+                        <ul className="navbar-nav">
+                            <li className="nav-item fs-5"><Link className="nav-link" to="/login">Login</Link></li>
+                            <li className="nav-item fs-5"><Link className="nav-link" to="/logout">Logout</Link></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
     )
 }
 
 function FooterComponent() {
     return (
-        <div className="footer"> 
-            <hr />
-            Footer
-        </div>
+        <footer className="footer"> 
+            <div className="container">
+                Your Footer
+            </div>
+        </footer>
     )
 }
 
