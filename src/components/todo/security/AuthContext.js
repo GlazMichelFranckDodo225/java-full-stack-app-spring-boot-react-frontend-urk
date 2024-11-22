@@ -1,17 +1,16 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 // Create a Context
-const AuthContext = createContext();
-
-// Put some States in the Context
+export const AuthContext = createContext();
 
 // Share the Created Context with Other Components
-
 export default function AuthProvider({children}) {
+    // Put some States in the Context
+    const [number, setNumber] = useState(10);
+
     return (
-        <AuthContext.Provider>
+        <AuthContext.Provider value={{number}}>
             {children}
         </AuthContext.Provider>
     )
 }
-
