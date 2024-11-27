@@ -5,7 +5,6 @@ import { useAuth } from './security/AuthContext';
 function LoginComponent() {
     const [username, setUsername] = useState("johndoe");
     const [password, setPassword] = useState("");
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const [showErrorMessage, setShowErrorMessage] = useState(false);
     const navigate = useNavigate();
     const authContext = useAuth();
@@ -25,16 +24,9 @@ function LoginComponent() {
     function handleSubmit() {
         // console.log(username);
         // console.log(password);
-        if (username === 'johndoe' && password === 'dummy') {
-            authContext.setIsAuthenticated(true);
-            console.log("Succes");
-            setShowSuccessMessage(true);
-            setShowErrorMessage(false);
+        if (authContext.login(username, password)) {
             navigate(`/welcome/${username}`);
         } else {
-            authContext.setIsAuthenticated(false);
-            console.log("Failed");
-            setShowSuccessMessage(false);
             setShowErrorMessage(true);
         }
     }
@@ -42,7 +34,6 @@ function LoginComponent() {
     return (
         <div className="login">
             <h1>Time to Login !</h1>
-            {showSuccessMessage && <div className='successMessage'>Authenticated Successfully.</div>}
             {showErrorMessage && <div className='errorMessage'>Authentication Failed. Please, Check your Credentials.</div>}
             <div className="loginForm">
                 <div>
